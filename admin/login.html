@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+    <script data-require="angularjs@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+	
+    <link rel="stylesheet" href="style.css" />
+   	<script src="controllers/app.js"></script>
+  </head>
+
+  <body class="container"  ng-controller="productController" >
+    
+   
+	  <form ng-submit="userlogin()">
+      <h4>User Login </h4>
+      <div class="form-group" ng-show="productid">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-4">
+            <input type="email" class="form-control" ng-model="user.email" placeholder="emai@gmail.com" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Password:</label>
+        <div class="col-md-4">
+            <input type="passwod" class="form-control" ng-model="user.password" placeholder="your passwod" />
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-10">
+      <input type="submit" value="submit" class="btn btn-success btn-sm" ng-show="submit" />    
+    
+      </div>
+    </form>
+    
+    <!--Users List-->
+ 
+    
+  </body>
+
+</html>

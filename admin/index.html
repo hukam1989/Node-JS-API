@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+    <script data-require="angularjs@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+	
+    <link rel="stylesheet" href="style.css" />
+   	<script src="controllers/app.js"></script>
+  </head>
+
+  <body class="container"  ng-controller="productController" >
+    
+    <!--Form-->
+    <form ng-submit="createProducts()">
+      <h4>Create Products</h4>
+      <div class="form-group" ng-show="productid">
+        <label class="control-label col-md-2">Price</label>
+        <div class="col-md-4">
+            <input type="number" class="form-control" ng-model="product.price" placeholder="50.." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Name:</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" ng-model="product.name" placeholder="john.." />
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-10">
+      <input type="submit" value="submit" class="btn btn-success btn-sm" ng-show="submit" />    
+      <input type="button" value="update" ng-click="updateProduct()" class="btn btn-success btn-sm" ng-show="update" />    
+      <input type="button" value="cancel" ng-click="cancelUpdate()" class="btn btn-danger btn-sm" ng-show="cancel" />    
+      </div>
+    </form>
+    <!--End Form-->
+    
+    <!--Users List-->
+    <br />
+    <h4>Product List</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+		    <td>Price</td>
+          <td>Action Commands</td>
+        </tr>
+      </thead>
+     
+      
+		<tbody ng-repeat="productlist in products">	
+		<tr ng-repeat="details in productlist">
+          <td>
+            {{details._id}}
+          </td>
+          <td>
+            {{details.name}} 
+          </td>
+		    <td>
+			{{details.price}}
+			</td>
+          <td>
+            <button class="btn btn-success btn-sm" ng-click="editProduct(details)">Edit</button>
+            <button class="btn btn-danger btn-sm" ng-click="deleteProduct(details)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+ 
+    </table>
+    
+  </body>
+
+</html>
