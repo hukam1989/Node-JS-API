@@ -44,7 +44,6 @@ app.use((req, res, next)=>{
 });
 // CORS Error handling End.
 
-
 //Routes which should handle the request Start.
 app.use('/login', loginUser);
 app.use('/orders', ordersRoutes);
