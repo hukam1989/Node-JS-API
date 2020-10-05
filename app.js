@@ -32,6 +32,7 @@ app.use('/upload',express.static('upload'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+
 // CORS Error handling Start.
 app.use((req, res, next)=>{	
 	res.header("Access-Control-Allow-Origin", "*");	
@@ -43,6 +44,7 @@ app.use((req, res, next)=>{
 	next();
 });
 // CORS Error handling End.
+
 
 //Routes which should handle the request Start.
 app.use('/login', loginUser);
